@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Text result_text;
     private Text option_Text;
 
+    public Image flag_image;
+
     public Text matchID_text;
 
     private string saved_username;
@@ -186,6 +188,10 @@ public class GameManager : MonoBehaviour
 
         if (saved_matchData.code == saved_matchData.code4)
             save_correct_answer_index = 4;
+
+        string path = "FlagImages/" + saved_matchData.code.ToLower();
+        var flag_sprite = Resources.Load<Sprite>(path);
+        flag_image.sprite = flag_sprite;
     }
 
     public void Next() {
